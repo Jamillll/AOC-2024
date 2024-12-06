@@ -33,8 +33,8 @@ def main():
         else:
             resolvedUpdateTotal += int(evaluatedUpdate[(len(evaluatedUpdate) // 2)])
 
-    print("correct update total: " + str(correctUpdateTotal))
-    print("resolved update total: " + str(resolvedUpdateTotal))
+    print("Part 1, correct update total: " + str(correctUpdateTotal))
+    print("Part 2, resolved update total: " + str(resolvedUpdateTotal))
 
 def getRelevantRules(orderRules, updateNumbers):
     relevantRules = list()
