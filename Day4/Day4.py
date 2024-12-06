@@ -1,5 +1,3 @@
-input = open("Day4\input.txt").read().split()
-
 def SearchForWord(grid, searchWord, targetX, targetY):
     total = 0
     if targetX >= len(grid[0]) or targetY >= len(grid):
@@ -57,6 +55,7 @@ def SearchForX(grid, targetX, targetY):
     else:
         return 0
 
+input = open("Day4\input.txt").read().split()
 
 totalXmas = 0
 totalX_Mas = 0

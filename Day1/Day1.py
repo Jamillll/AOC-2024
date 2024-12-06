@@ -30,7 +30,7 @@ for i, number in enumerate(list1):
     else: 
         totalDistance += list2[i] - number
 
-print("Total Distance = " + str(totalDistance))
+print("Part 1, Total Distance = " + str(totalDistance))
 
 # Part 2
 
@@ -43,4 +43,4 @@ for number1 in list1:
     
     similarityScore += number1 * matchCount
 
-print("Similarity Score = " + str(similarityScore))
+print("Part 2, Similarity Score = " + str(similarityScore))
