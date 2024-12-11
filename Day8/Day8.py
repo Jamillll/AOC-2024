@@ -30,14 +30,16 @@ def main(argv):
                 if location == otherLocations:
                     continue
                 
-                distance = [location[0] - otherLocations[0], location[1] - otherLocations[1]]
-                if location[0] + (distance[0] * 2) >= grid.gridLength or location[0] + (distance[0] * 2) < 0:
-                    continue
-                if location[1] + (distance[1] * 2) >= grid.gridLength or location[1] + (distance[1] * 2) < 0:
-                    continue
-
-                validHashtags.append([location[0]+ (distance[0] * 2), location[1] + (distance[1] * 2)])
+                distance = [otherLocations[0] - location[0], otherLocations[1] - location[1]]
+                if location[0] + (distance[0] * 2) < grid.gridLength and location[0] + (distance[0] * 2) >= 0:
+                    if location[1] + (distance[1] * 2) < grid.gridLength and location[1] + (distance[1] * 2) >= 0:
+                        validHashtags.append([location[0]+ (distance[0] * 2), location[1] + (distance[1] * 2)])
     
+    for i, hashtag in enumerate(validHashtags):
+        for j, otherHashtag in enumerate(validHashtags):
+            if hashtag == otherHashtag and i != j:
+                validHashtags.remove(otherHashtag)
+
     for y in range(grid.gridLength):
         for x in range(grid.gridLength):
             printedHashtag = False
@@ -45,8 +47,9 @@ def main(argv):
                 if hashtag == [y, x]:
                     print("#", end='')
                     printedHashtag = True
+                    break
             if not printedHashtag:
-                print(".", end="")
+                print(grid.GetCharAtPosition([y,x]), end="")
         print()
 
     print(len(validHashtags))
